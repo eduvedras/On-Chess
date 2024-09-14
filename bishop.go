@@ -18,3 +18,7 @@ func (b bishop) possibleMoves(board board) []position {
 func (b bishop) toString() string {
 	return fmt.Sprintf("b%v", b.getTeam())
 }
+
+func (b bishop) isEmpty() bool {
+	return false
+}

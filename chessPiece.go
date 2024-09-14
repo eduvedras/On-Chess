@@ -13,6 +13,7 @@ type chessPiece interface {
 	getTeam() team
 	possibleMoves(board) []position
 	toString() string
+	isEmpty() bool
 }
 
 type empty struct{}
@@ -27,4 +28,8 @@ func (e empty) possibleMoves(_ board) []position {
 
 func (e empty) toString() string {
 	return "  "
+}
+
+func (e empty) isEmpty() bool {
+	return true
 }

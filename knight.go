@@ -18,3 +18,7 @@ func (k knight) possibleMoves(board board) []position {
 func (k knight) toString() string {
 	return fmt.Sprintf("n%v", k.getTeam())
 }
+
+func (k knight) isEmpty() bool {
+	return false
+}

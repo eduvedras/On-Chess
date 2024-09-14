@@ -18,3 +18,7 @@ func (q queen) possibleMoves(board board) []position {
 func (q queen) toString() string {
 	return fmt.Sprintf("q%v", q.getTeam())
 }
+
+func (q queen) isEmpty() bool {
+	return false
+}

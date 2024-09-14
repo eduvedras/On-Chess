@@ -18,3 +18,7 @@ func (r rook) possibleMoves(board board) []position {
 func (r rook) toString() string {
 	return fmt.Sprintf("r%v", r.getTeam())
 }
+
+func (r rook) isEmpty() bool {
+	return false
+}
