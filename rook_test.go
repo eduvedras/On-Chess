@@ -12,22 +12,22 @@ func TestRookPossibleMoves(t *testing.T) {
 	}{
 		{
 			r:   rook{pos: position{2, 0}, team: white},
-			out: []position{{2, 1}, {2, 2}, {2, 3}, {2, 4}, {2, 5}, {2, 6}, {2, 7}, {3, 0}, {4, 0}, {5, 0}},
+			out: []position{{2, 1}, {2, 2}, {2, 3}, {2, 4}, {2, 5}, {2, 6}, {2, 7}, {3, 0}, {4, 0}, {5, 0}, {6, 0}},
 		},
 		{
 			r:   rook{pos: position{3, 4}, team: white},
-			out: []position{{3, 5}, {3, 6}, {3, 7}, {3, 3}, {3, 2}, {3, 1}, {3, 0}, {4, 4}, {5, 4}, {2, 4}},
+			out: []position{{3, 5}, {3, 6}, {3, 7}, {3, 3}, {3, 2}, {3, 1}, {3, 0}, {4, 4}, {5, 4}, {6, 4}, {2, 4}},
 		},
 		{
 			r:   rook{pos: position{5, 7}, team: black},
-			out: []position{{5, 6}, {5, 5}, {5, 4}, {5, 3}, {5, 2}, {5, 1}, {5, 0}, {4, 7}, {3, 7}, {2, 7}},
+			out: []position{{5, 6}, {5, 5}, {5, 4}, {5, 3}, {5, 2}, {5, 1}, {5, 0}, {4, 7}, {3, 7}, {2, 7}, {1, 7}},
 		},
 		{
 			r:   rook{pos: position{0, 0}, team: black},
-			out: []position{},
+			out: []position{{0, 1}, {1, 0}},
 		},
 		{
-			r:   rook{pos: position{7, 7}, team: white},
+			r:   rook{pos: position{7, 7}, team: black},
 			out: []position{},
 		},
 	}

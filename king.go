@@ -11,6 +11,10 @@ func (k king) getTeam() team {
 	return k.team
 }
 
+func (k king) getPos() position {
+	return k.pos
+}
+
 func (k king) possibleMoves(board board) []position {
 	return []position{{1, 2}, {3, 4}}
 }

@@ -11,6 +11,10 @@ func (q queen) getTeam() team {
 	return q.team
 }
 
+func (q queen) getPos() position {
+	return q.pos
+}
+
 func (q queen) possibleMoves(board board) []position {
 	return []position{{1, 2}, {3, 4}}
 }

@@ -11,6 +11,10 @@ func (p pawn) getTeam() team {
 	return p.team
 }
 
+func (p pawn) getPos() position {
+	return p.pos
+}
+
 func (p pawn) possibleMoves(board board) []position {
 	positions := []position{}
 	initLine := 0

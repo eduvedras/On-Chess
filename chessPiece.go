@@ -10,6 +10,7 @@ const (
 )
 
 type chessPiece interface {
+	getPos() position
 	getTeam() team
 	possibleMoves(board) []position
 	toString() string
@@ -20,6 +21,10 @@ type empty struct{}
 
 func (e empty) getTeam() team {
 	return emp
+}
+
+func (e empty) getPos() position {
+	return position{}
 }
 
 func (e empty) possibleMoves(_ board) []position {
