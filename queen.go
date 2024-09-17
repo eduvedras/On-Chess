@@ -16,7 +16,14 @@ func (q queen) getPos() position {
 }
 
 func (q queen) possibleMoves(board board) []position {
-	return []position{{1, 2}, {3, 4}}
+	positions := []position{}
+	directions := []direction{right, left, up, down, upRight, downRight, upLeft, downLeft}
+
+	for _, dir := range directions {
+		positions = append(positions, iterateDirection(q, dir, board)...)
+	}
+
+	return positions
 }
 
 func (q queen) toString() string {

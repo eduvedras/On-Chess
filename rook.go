@@ -17,11 +17,11 @@ func (r rook) getPos() position {
 
 func (r rook) possibleMoves(board board) []position {
 	positions := []position{}
+	directions := []direction{right, left, up, down}
 
-	positions = append(positions, iterateDirection(r, right, board)...)
-	positions = append(positions, iterateDirection(r, left, board)...)
-	positions = append(positions, iterateDirection(r, up, board)...)
-	positions = append(positions, iterateDirection(r, down, board)...)
+	for _, dir := range directions {
+		positions = append(positions, iterateDirection(r, dir, board)...)
+	}
 
 	return positions
 }

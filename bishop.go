@@ -17,11 +17,11 @@ func (b bishop) getPos() position {
 
 func (b bishop) possibleMoves(board board) []position {
 	positions := []position{}
+	directions := []direction{upRight, downRight, upLeft, downLeft}
 
-	positions = append(positions, iterateDirection(b, upRight, board)...)
-	positions = append(positions, iterateDirection(b, downRight, board)...)
-	positions = append(positions, iterateDirection(b, upLeft, board)...)
-	positions = append(positions, iterateDirection(b, downLeft, board)...)
+	for _, dir := range directions {
+		positions = append(positions, iterateDirection(b, dir, board)...)
+	}
 
 	return positions
 }
