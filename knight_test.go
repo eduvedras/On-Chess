@@ -5,30 +5,30 @@ import (
 	"testing"
 )
 
-func TestKingPossibleMoves(t *testing.T) {
+func TestKnightPossibleMoves(t *testing.T) {
 	cases := []struct {
-		k   king
+		k   knight
 		out []position
 	}{
 		{
-			k:   king{pos: position{2, 0}, team: white},
-			out: []position{{2, 1}, {3, 0}, {3, 1}},
+			k:   knight{pos: position{2, 0}, team: white},
+			out: []position{{3, 2}, {4, 1}},
 		},
 		{
-			k:   king{pos: position{3, 4}, team: white},
-			out: []position{{3, 5}, {3, 3}, {4, 4}, {2, 4}, {4, 5}, {2, 5}, {4, 3}, {2, 3}},
+			k:   knight{pos: position{3, 4}, team: black},
+			out: []position{{4, 6}, {2, 6}, {4, 2}, {2, 2}, {5, 5}, {5, 3}, {1, 5}, {1, 3}},
 		},
 		{
-			k:   king{pos: position{5, 7}, team: black},
-			out: []position{{5, 6}, {4, 7}, {4, 6}},
+			k:   knight{pos: position{5, 7}, team: black},
+			out: []position{{4, 5}, {3, 6}},
 		},
 		{
-			k:   king{pos: position{0, 0}, team: black},
-			out: []position{{0, 1}, {1, 0}, {1, 1}},
+			k:   knight{pos: position{0, 0}, team: black},
+			out: []position{{1, 2}, {2, 1}},
 		},
 		{
-			k:   king{pos: position{7, 7}, team: black},
-			out: []position{},
+			k:   knight{pos: position{7, 7}, team: black},
+			out: []position{{5, 6}},
 		},
 	}
 

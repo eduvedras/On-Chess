@@ -73,7 +73,12 @@ func TestPawnPossibleMoves(t *testing.T) {
 			board := initializeBoard()
 
 			res := c.p.possibleMoves(board)
-			for j := 0; j < len(res); j++ {
+
+			if len(res) != len(c.out) {
+				t.Errorf(fmt.Sprintf("Expected %v for input %v but got %v", c.out, c.p, c.p.possibleMoves(board)))
+			}
+
+			for j := 0; j < len(c.out); j++ {
 				if res[j] != c.out[j] {
 					t.Errorf(fmt.Sprintf("Expected %v for input %v but got %v", c.out, c.p, c.p.possibleMoves(board)))
 				}
