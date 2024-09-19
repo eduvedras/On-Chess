@@ -15,6 +15,10 @@ func (p pawn) getPos() position {
 	return p.pos
 }
 
+func (p *pawn) setPos(pos position) {
+	p.pos = pos
+}
+
 func (p pawn) possibleMoves(board board) []position {
 	positions := []position{}
 	initLine := 0

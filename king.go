@@ -15,12 +15,16 @@ func (k king) getPos() position {
 	return k.pos
 }
 
+func (k *king) setPos(pos position) {
+	k.pos = pos
+}
+
 func (k king) possibleMoves(board board) []position {
 	positions := []position{}
 	directions := []direction{right, left, up, down, upRight, downRight, upLeft, downLeft}
 
 	for _, dir := range directions {
-		moves := iterateDirection(k, dir, board)
+		moves := iterateDirection(&k, dir, board)
 		if len(moves) > 0 {
 			positions = append(positions, moves[0])
 		}

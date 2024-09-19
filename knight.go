@@ -15,6 +15,10 @@ func (k knight) getPos() position {
 	return k.pos
 }
 
+func (k *knight) setPos(pos position) {
+	k.pos = pos
+}
+
 func dirKnightMoves(piece chessPiece, dir direction, board board) []position {
 	positions := []position{}
 	var conditions []bool
@@ -119,7 +123,7 @@ func (k knight) possibleMoves(board board) []position {
 	directions := []direction{right, left, up, down}
 
 	for _, dir := range directions {
-		positions = append(positions, dirKnightMoves(k, dir, board)...)
+		positions = append(positions, dirKnightMoves(&k, dir, board)...)
 	}
 
 	return positions
