@@ -28,36 +28,41 @@ func isKing(piece chessPiece) bool {
 	}
 }
 
+func handlePromotion(piece chessPiece) chessPiece {
+	reader := bufio.NewScanner(os.Stdin)
+
+	for {
+		fmt.Print("Possible promotions for your pawn > rook knight bishop queen\n")
+		fmt.Print("Choose your promotion > ")
+		reader.Scan()
+
+		input := reader.Text()
+
+		switch input {
+		case "rook":
+			piece = &rook{pos: piece.getPos(), team: piece.getTeam()}
+		case "knight":
+			piece = &knight{pos: piece.getPos(), team: piece.getTeam()}
+		case "bishop":
+			piece = &bishop{pos: piece.getPos(), team: piece.getTeam()}
+		case "queen":
+			piece = &queen{pos: piece.getPos(), team: piece.getTeam()}
+		default:
+			fmt.Println("You need to choose one of the possible promotions!")
+			continue
+		}
+		break
+	}
+	return piece
+}
+
 func updateBoard(board board, piece chessPiece, newPos position) (board, bool) {
 	gameEnded := false
 
 	board[piece.getPos()[0]][piece.getPos()[1]] = &empty{}
 
 	if ((piece.getTeam() == white && newPos[0] == size-1) || (piece.getTeam() == black && newPos[0] == 0)) && isPawn(piece) {
-		reader := bufio.NewScanner(os.Stdin)
-
-		for {
-			fmt.Print("Possible promotions for your pawn > rook knight bishop queen\n")
-			fmt.Print("Choose your promotion > ")
-			reader.Scan()
-
-			input := reader.Text()
-
-			switch input {
-			case "rook":
-				piece = &rook{pos: piece.getPos(), team: piece.getTeam()}
-			case "knight":
-				piece = &knight{pos: piece.getPos(), team: piece.getTeam()}
-			case "bishop":
-				piece = &bishop{pos: piece.getPos(), team: piece.getTeam()}
-			case "queen":
-				piece = &queen{pos: piece.getPos(), team: piece.getTeam()}
-			default:
-				fmt.Println("You need to choose one of the possible promotions!")
-				continue
-			}
-			break
-		}
+		piece = handlePromotion(piece)
 	}
 
 	if isKing(board[newPos[0]][newPos[1]]) {
