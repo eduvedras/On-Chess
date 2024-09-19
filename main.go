@@ -71,8 +71,12 @@ func main() {
 
 		reader.Scan()
 
-		newposi, newposj, err := sanitizeInput(reader.Text())
+		inputMove := reader.Text()
+		newposi, newposj, err := sanitizeInput(inputMove)
 		if err != nil {
+			if inputMove == "back" {
+				continue
+			}
 			fmt.Println(err)
 			continue
 		}
