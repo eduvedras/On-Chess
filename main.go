@@ -88,8 +88,6 @@ func main() {
 			if newPos == pos {
 				isValidPos = true
 				board, ended = updateBoard(board, piece, newPos)
-				//write tests
-				//refactor
 
 				if player == white {
 					player = black
